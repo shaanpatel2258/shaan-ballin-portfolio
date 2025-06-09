@@ -1,9 +1,11 @@
 
 import { useEffect, useState } from 'react';
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown, Linkedin, Github, Mail, FileText } from 'lucide-react';
 import ProjectsSection from './ProjectsSection';
 import BasketballCursor from './BasketballCursor';
 import DynamicBackground from './DynamicBackground';
+import ContactSection from './ContactSection';
+import TypedText from './TypedText';
 
 const Portfolio = () => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -16,6 +18,14 @@ const Portfolio = () => {
     const projectsSection = document.getElementById('projects');
     projectsSection?.scrollIntoView({ behavior: 'smooth' });
   };
+
+  const titles = [
+    'Software Engineer',
+    'Full Stack Developer', 
+    'React Specialist',
+    'Problem Solver',
+    'Code Architect'
+  ];
 
   return (
     <div className="min-h-screen bg-black text-white relative overflow-x-hidden">
@@ -36,10 +46,30 @@ const Portfolio = () => {
             </span>
           </h1>
 
-          {/* Role */}
-          <h2 className="text-2xl md:text-3xl text-gray-300 mb-8 font-light tracking-wide">
-            Software Engineer
-          </h2>
+          {/* Dynamic Role */}
+          <div className="text-2xl md:text-3xl text-gray-300 mb-8 font-light tracking-wide h-12">
+            <TypedText texts={titles} />
+          </div>
+
+          {/* Social Icons */}
+          <div className="flex justify-center space-x-6 mb-8">
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" 
+               className="text-gray-400 hover:text-blue-500 transition-colors duration-300 hover:scale-110 transform">
+              <Linkedin size={28} />
+            </a>
+            <a href="https://github.com" target="_blank" rel="noopener noreferrer"
+               className="text-gray-400 hover:text-gray-200 transition-colors duration-300 hover:scale-110 transform">
+              <Github size={28} />
+            </a>
+            <a href="mailto:your.email@example.com"
+               className="text-gray-400 hover:text-red-500 transition-colors duration-300 hover:scale-110 transform">
+              <Mail size={28} />
+            </a>
+            <a href="/resume.pdf" target="_blank" rel="noopener noreferrer"
+               className="text-gray-400 hover:text-green-500 transition-colors duration-300 hover:scale-110 transform">
+              <FileText size={28} />
+            </a>
+          </div>
 
           {/* Blurb */}
           <p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed mb-12">
@@ -66,6 +96,9 @@ const Portfolio = () => {
 
       {/* Projects Section */}
       <ProjectsSection />
+      
+      {/* Contact Section */}
+      <ContactSection />
     </div>
   );
 };

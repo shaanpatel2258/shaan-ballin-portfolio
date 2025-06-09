@@ -48,7 +48,7 @@ const IntroAnimation = ({ onComplete }: IntroAnimationProps) => {
   }, [showAdjective, adjectives.length, onComplete]);
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-black to-blue-900 relative overflow-hidden">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-black to-orange-900 relative overflow-hidden">
       {/* Animated background particles */}
       <div className="absolute inset-0">
         {[...Array(50)].map((_, i) => (
@@ -63,6 +63,34 @@ const IntroAnimation = ({ onComplete }: IntroAnimationProps) => {
             }}
           />
         ))}
+      </div>
+
+      {/* Bouncing Basketball */}
+      <div className="absolute top-20 left-20 w-16 h-16 animate-bounce" style={{ animationDuration: '1.5s' }}>
+        <div className="w-full h-full bg-gradient-to-br from-orange-400 to-orange-600 rounded-full relative shadow-xl">
+          {/* Basketball lines */}
+          <div className="absolute inset-0 rounded-full border-2 border-orange-800 opacity-80" />
+          <div className="absolute top-0 left-1/2 w-0.5 h-full bg-orange-800 opacity-80" style={{ transform: 'translateX(-50%)' }} />
+          <div className="absolute top-1/2 left-0 w-full h-0.5 bg-orange-800 opacity-80" style={{ transform: 'translateY(-50%)' }} />
+          <div className="absolute inset-0">
+            <svg className="w-full h-full" viewBox="0 0 64 64">
+              <path 
+                d="M 16 8 Q 32 24 48 8" 
+                stroke="#9a3412" 
+                strokeWidth="2" 
+                fill="none" 
+                opacity="0.8"
+              />
+              <path 
+                d="M 16 56 Q 32 40 48 56" 
+                stroke="#9a3412" 
+                strokeWidth="2" 
+                fill="none" 
+                opacity="0.8"
+              />
+            </svg>
+          </div>
+        </div>
       </div>
 
       <div className="text-center z-10">
