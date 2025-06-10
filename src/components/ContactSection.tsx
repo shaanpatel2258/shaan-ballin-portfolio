@@ -17,7 +17,7 @@ const ContactSection = () => {
               <Mail className="w-8 h-8 text-white" />
             </div>
             <h3 className="text-xl font-semibold mb-2 text-white">Email</h3>
-            <p className="text-gray-400">your.email@example.com</p>
+            <p className="text-gray-400">shaanp2258@gmail.com</p>
           </div>
 
           <div className="text-center group">
@@ -40,7 +40,7 @@ const ContactSection = () => {
         <div className="mt-12 text-center">
           <p className="text-gray-400 text-lg mb-6">Ready to build something amazing together?</p>
           <a 
-            href="mailto:your.email@example.com"
+            href="mailto:shaanp2258@gmail.com"
             className="inline-block bg-gradient-to-r from-orange-500 to-red-600 px-8 py-4 rounded-full text-lg font-semibold hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-orange-500/25"
           >
             Let's Talk

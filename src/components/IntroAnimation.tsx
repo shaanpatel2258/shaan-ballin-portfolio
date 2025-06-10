@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 
 interface IntroAnimationProps {
@@ -12,9 +13,8 @@ const IntroAnimation = ({ onComplete }: IntroAnimationProps) => {
   const [hideAdjectives, setHideAdjectives] = useState(false);
   const [reuniteNames, setReuniteNames] = useState(false);
   const [basketballPosition, setBasketballPosition] = useState({ x: 0, direction: 1 });
-  const [showContinue, setShowContinue] = useState(false);
 
-  const adjectives = ['Engineer', 'Innovator', 'Dreamer', 'Dedicated', 'Confident', 'Learner', 'Engineer'];
+  const adjectives = ['ENGINEER', 'INNOVATOR', 'DREAMER', 'DEDICATED', 'CONFIDENT', 'LEARNER', 'ENGINEER'];
 
   useEffect(() => {
     // Show name first
@@ -32,16 +32,10 @@ const IntroAnimation = ({ onComplete }: IntroAnimationProps) => {
       setShowAdjective(true);
     }, 2500);
 
-    // Show continue button after a delay
-    const continueTimer = setTimeout(() => {
-      setShowContinue(true);
-    }, 3000);
-
     return () => {
       clearTimeout(nameTimer);
       clearTimeout(splitTimer);
       clearTimeout(adjectiveTimer);
-      clearTimeout(continueTimer);
     };
   }, []);
 
@@ -102,7 +96,7 @@ const IntroAnimation = ({ onComplete }: IntroAnimationProps) => {
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
               animationDelay: `${Math.random() * 5}s`,
-              animationDuration: `${4 + Math.random() * 4}s`
+              animationDuration: `${6 + Math.random() * 6}s`
             }}
           />
         ))}
@@ -143,14 +137,12 @@ const IntroAnimation = ({ onComplete }: IntroAnimationProps) => {
         </div>
       </div>
 
-      {/* Click to continue text - positioned between basketball and name */}
-      {showContinue && (
-        <div className="absolute bottom-32 left-1/2 transform -translate-x-1/2 animate-fade-in z-30">
-          <p className="text-sm text-gray-400">
-            Click anywhere to continue
-          </p>
-        </div>
-      )}
+      {/* Click to continue text - stationary and centered */}
+      <div className="absolute bottom-32 left-1/2 transform -translate-x-1/2 z-30">
+        <p className="text-sm text-gray-400">
+          Click anywhere to continue
+        </p>
+      </div>
 
       <div className="text-center z-10 relative">
         {/* Name with improved spacing */}

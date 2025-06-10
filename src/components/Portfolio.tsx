@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from 'react';
 import { ChevronDown, Linkedin, Github, Mail, FileText } from 'lucide-react';
 import ProjectsSection from './ProjectsSection';
@@ -21,10 +20,9 @@ const Portfolio = () => {
 
   const titles = [
     'Software Engineer',
-    'Full Stack Developer', 
-    'React Specialist',
-    'Problem Solver',
-    'Code Architect'
+    'Sports Fanatic', 
+    'Travel Enthusiast',
+    'Curious Learner'
   ];
 
   return (
@@ -53,15 +51,15 @@ const Portfolio = () => {
 
           {/* Social Icons */}
           <div className="flex justify-center space-x-6 mb-8">
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" 
+            <a href="https://www.linkedin.com/in/shaan-patel-181253207/" target="_blank" rel="noopener noreferrer" 
                className="text-gray-400 hover:text-blue-500 transition-colors duration-300 hover:scale-110 transform">
               <Linkedin size={28} />
             </a>
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer"
+            <a href="https://github.com/spatel0203" target="_blank" rel="noopener noreferrer"
                className="text-gray-400 hover:text-gray-200 transition-colors duration-300 hover:scale-110 transform">
               <Github size={28} />
             </a>
-            <a href="mailto:your.email@example.com"
+            <a href="mailto:shaanp2258@gmail.com"
                className="text-gray-400 hover:text-red-500 transition-colors duration-300 hover:scale-110 transform">
               <Mail size={28} />
             </a>
