@@ -12,6 +12,8 @@ const IntroAnimation = ({ onComplete }: IntroAnimationProps) => {
   const [splitNames, setSplitNames] = useState(false);
   const [hideAdjectives, setHideAdjectives] = useState(false);
   const [reuniteNames, setReuniteNames] = useState(false);
+  const [basketballPosition, setBasketballPosition] = useState({ x: 0, direction: 1 });
+  const [showContinue, setShowContinue] = useState(false);
 
   const adjectives = ['engineer', 'innovator', 'dreamer', 'dedicated', 'confident', 'learner', 'engineer'];
 
@@ -31,10 +33,16 @@ const IntroAnimation = ({ onComplete }: IntroAnimationProps) => {
       setShowAdjective(true);
     }, 2500);
 
+    // Show continue button after a delay
+    const continueTimer = setTimeout(() => {
+      setShowContinue(true);
+    }, 3000);
+
     return () => {
       clearTimeout(nameTimer);
       clearTimeout(splitTimer);
       clearTimeout(adjectiveTimer);
+      clearTimeout(continueTimer);
     };
   }, []);
 
@@ -60,8 +68,31 @@ const IntroAnimation = ({ onComplete }: IntroAnimationProps) => {
     return () => clearInterval(interval);
   }, [showAdjective, adjectives.length, onComplete]);
 
+  // Basketball rolling animation
+  useEffect(() => {
+    const rollBasketball = () => {
+      setBasketballPosition(prev => {
+        const newX = prev.x + (prev.direction * 2);
+        const screenWidth = window.innerWidth - 80; // Account for basketball width
+        
+        if (newX >= screenWidth || newX <= 0) {
+          return { x: newX <= 0 ? 0 : screenWidth, direction: prev.direction * -1 };
+        }
+        
+        return { x: newX, direction: prev.direction };
+      });
+    };
+
+    const interval = setInterval(rollBasketball, 16); // ~60fps
+    return () => clearInterval(interval);
+  }, []);
+
+  const handleContinue = () => {
+    onComplete();
+  };
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-black to-orange-900 relative overflow-hidden">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-black to-orange-900 relative overflow-hidden cursor-pointer" onClick={handleContinue}>
       {/* Animated background particles */}
       <div className="absolute inset-0">
         {[...Array(50)].map((_, i) => (
@@ -78,15 +109,13 @@ const IntroAnimation = ({ onComplete }: IntroAnimationProps) => {
         ))}
       </div>
 
-      {/* Full-screen Bouncing Basketball */}
+      {/* Rolling Basketball */}
       <div 
-        className="absolute w-20 h-20 animate-bounce z-20" 
+        className="absolute w-20 h-20 z-20 transition-transform duration-75" 
         style={{ 
-          animationDuration: '2s',
-          left: '10%',
-          top: '15%',
-          animationDirection: 'alternate-reverse',
-          animationIterationCount: 'infinite'
+          left: `${basketballPosition.x}px`,
+          bottom: '20px',
+          transform: `rotate(${basketballPosition.x * 2}deg)` // Rolling effect
         }}
       >
         <div className="w-full h-full bg-gradient-to-br from-orange-400 to-orange-600 rounded-full relative shadow-2xl">
@@ -116,10 +145,10 @@ const IntroAnimation = ({ onComplete }: IntroAnimationProps) => {
       </div>
 
       <div className="text-center z-10 relative">
-        {/* Name with dynamic spacing */}
+        {/* Name with improved spacing */}
         <div className="flex flex-col items-center justify-center h-32">
           <div className={`flex items-center justify-center transition-all duration-1000 ${
-            splitNames && !reuniteNames ? 'space-x-32' : 'space-x-4'
+            splitNames && !reuniteNames ? 'space-x-64' : 'space-x-4'
           }`}>
             <h1 
               className={`text-6xl md:text-8xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-red-500 transition-all duration-1000 ${
@@ -137,18 +166,30 @@ const IntroAnimation = ({ onComplete }: IntroAnimationProps) => {
             </h1>
           </div>
 
-          {/* Cycling adjectives in the middle */}
+          {/* Cycling adjectives in the middle with better positioning */}
           <div className="absolute inset-0 flex items-center justify-center">
             {showAdjective && !hideAdjectives && (
               <p 
                 key={currentAdjectiveIndex}
-                className="text-2xl md:text-3xl text-gray-300 font-light animate-fade-in"
+                className="text-2xl md:text-3xl text-gray-300 font-light animate-fade-in px-8"
               >
                 {adjectives[currentAdjectiveIndex]}
               </p>
             )}
           </div>
         </div>
+
+        {/* Click to continue button */}
+        {showContinue && (
+          <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-fade-in">
+            <button 
+              onClick={handleContinue}
+              className="px-6 py-3 bg-gradient-to-r from-orange-500 to-red-600 text-white rounded-full font-semibold hover:scale-105 transition-all duration-300 shadow-lg"
+            >
+              Click to Continue
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );
