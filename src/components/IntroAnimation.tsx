@@ -143,6 +143,15 @@ const IntroAnimation = ({ onComplete }: IntroAnimationProps) => {
         </div>
       </div>
 
+      {/* Click to continue text - positioned between basketball and name */}
+      {showContinue && (
+        <div className="absolute bottom-32 left-1/2 transform -translate-x-1/2 animate-fade-in z-30">
+          <p className="text-sm text-gray-400">
+            Click anywhere to continue
+          </p>
+        </div>
+      )}
+
       <div className="text-center z-10 relative">
         {/* Name with improved spacing */}
         <div className="flex flex-col items-center justify-center h-32">
@@ -177,15 +186,6 @@ const IntroAnimation = ({ onComplete }: IntroAnimationProps) => {
             )}
           </div>
         </div>
-
-        {/* Click to continue text */}
-        {showContinue && (
-          <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-fade-in">
-            <p className="text-sm text-gray-400">
-              Click anywhere to continue
-            </p>
-          </div>
-        )}
       </div>
     </div>
   );
