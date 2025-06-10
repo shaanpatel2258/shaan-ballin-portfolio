@@ -25,7 +25,7 @@ const ContactSection = () => {
               <Phone className="w-8 h-8 text-white" />
             </div>
             <h3 className="text-xl font-semibold mb-2 text-white">Phone</h3>
-            <p className="text-gray-400">+1 (555) 123-4567</p>
+            <p className="text-gray-400">+1 (732) 910-6290</p>
           </div>
 
           <div className="text-center group">
@@ -33,7 +33,7 @@ const ContactSection = () => {
               <MapPin className="w-8 h-8 text-white" />
             </div>
             <h3 className="text-xl font-semibold mb-2 text-white">Location</h3>
-            <p className="text-gray-400">San Francisco, CA</p>
+            <p className="text-gray-400">San Jose, CA</p>
           </div>
         </div>
 

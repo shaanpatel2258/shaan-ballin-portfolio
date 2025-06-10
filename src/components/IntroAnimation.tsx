@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 
 interface IntroAnimationProps {
@@ -14,7 +13,7 @@ const IntroAnimation = ({ onComplete }: IntroAnimationProps) => {
   const [reuniteNames, setReuniteNames] = useState(false);
   const [basketballPosition, setBasketballPosition] = useState({ x: 0, direction: 1 });
 
-  const adjectives = ['ENGINEER', 'INNOVATOR', 'DREAMER', 'DEDICATED', 'CONFIDENT', 'LEARNER', 'ENGINEER'];
+  const adjectives = ['Engineer', 'Innovator', 'Dreamer', 'Dedicated', 'Confident', 'Learner', 'Engineer'];
 
   useEffect(() => {
     // Show name first

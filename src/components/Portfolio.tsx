@@ -63,7 +63,7 @@ const Portfolio = () => {
                className="text-gray-400 hover:text-red-500 transition-colors duration-300 hover:scale-110 transform">
               <Mail size={28} />
             </a>
-            <a href="/resume.pdf" target="_blank" rel="noopener noreferrer"
+            <a href="https://drive.google.com/file/d/1zuWqTebwxxbvkdBlTArQE6KWQcqqXjKH/view?pli=1" target="_blank" rel="noopener noreferrer"
                className="text-gray-400 hover:text-green-500 transition-colors duration-300 hover:scale-110 transform">
               <FileText size={28} />
             </a>
@@ -71,9 +71,7 @@ const Portfolio = () => {
 
           {/* Blurb */}
           <p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed mb-12">
-            Passionate about creating innovative solutions that bridge technology and user experience. 
-            I build scalable applications with clean code and modern frameworks, always pushing the 
-            boundaries of what's possible.
+            Passionate engineer always looking to tackle technical problems and create innovative solutions that help shape modern systems and improve user experiences.
           </p>
 
           {/* CTA Button */}
