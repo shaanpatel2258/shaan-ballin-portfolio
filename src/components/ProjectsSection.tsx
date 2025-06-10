@@ -72,11 +72,36 @@ const ProjectsSection = () => {
                 ))}
               </div>
 
-              {/* Basketball decoration */}
-              <div className="absolute top-4 right-4 w-8 h-8 bg-orange-500 rounded-full opacity-20 group-hover:opacity-40 transition-opacity duration-300">
-                <div className="absolute inset-0 rounded-full border border-orange-800" />
-                <div className="absolute top-0 left-1/2 w-px h-full bg-orange-800" style={{ transform: 'translateX(-50%)' }} />
-                <div className="absolute top-1/2 left-0 w-full h-px bg-orange-800" style={{ transform: 'translateY(-50%)' }} />
+              {/* Enhanced Basketball decoration */}
+              <div className="absolute top-4 right-4 w-12 h-12 bg-gradient-to-br from-orange-400 to-orange-600 rounded-full opacity-60 group-hover:opacity-80 transition-opacity duration-300 relative shadow-lg">
+                {/* Basketball curved lines */}
+                <div className="absolute inset-0 rounded-full border-2 border-orange-800 opacity-80" />
+                
+                {/* Vertical curved line */}
+                <div className="absolute top-0 left-1/2 w-0.5 h-full bg-orange-800 opacity-80 rounded-full" style={{ transform: 'translateX(-50%)' }} />
+                
+                {/* Horizontal curved line */}
+                <div className="absolute top-1/2 left-0 w-full h-0.5 bg-orange-800 opacity-80 rounded-full" style={{ transform: 'translateY(-50%)' }} />
+                
+                {/* Diagonal curved lines */}
+                <div className="absolute inset-0">
+                  <svg className="w-full h-full" viewBox="0 0 48 48">
+                    <path 
+                      d="M 12 6 Q 24 18 36 6" 
+                      stroke="#9a3412" 
+                      strokeWidth="1.5" 
+                      fill="none" 
+                      opacity="0.8"
+                    />
+                    <path 
+                      d="M 12 42 Q 24 30 36 42" 
+                      stroke="#9a3412" 
+                      strokeWidth="1.5" 
+                      fill="none" 
+                      opacity="0.8"
+                    />
+                  </svg>
+                </div>
               </div>
             </div>
           ))}
