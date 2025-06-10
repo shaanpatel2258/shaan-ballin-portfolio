@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 
 interface IntroAnimationProps {
@@ -15,7 +14,7 @@ const IntroAnimation = ({ onComplete }: IntroAnimationProps) => {
   const [basketballPosition, setBasketballPosition] = useState({ x: 0, direction: 1 });
   const [showContinue, setShowContinue] = useState(false);
 
-  const adjectives = ['engineer', 'innovator', 'dreamer', 'dedicated', 'confident', 'learner', 'engineer'];
+  const adjectives = ['Engineer', 'Innovator', 'Dreamer', 'Dedicated', 'Confident', 'Learner', 'Engineer'];
 
   useEffect(() => {
     // Show name first
@@ -102,8 +101,8 @@ const IntroAnimation = ({ onComplete }: IntroAnimationProps) => {
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 3}s`,
-              animationDuration: `${2 + Math.random() * 2}s`
+              animationDelay: `${Math.random() * 5}s`,
+              animationDuration: `${4 + Math.random() * 4}s`
             }}
           />
         ))}
@@ -179,15 +178,12 @@ const IntroAnimation = ({ onComplete }: IntroAnimationProps) => {
           </div>
         </div>
 
-        {/* Click to continue button */}
+        {/* Click to continue text */}
         {showContinue && (
           <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-fade-in">
-            <button 
-              onClick={handleContinue}
-              className="px-6 py-3 bg-gradient-to-r from-orange-500 to-red-600 text-white rounded-full font-semibold hover:scale-105 transition-all duration-300 shadow-lg"
-            >
-              Click to Continue
-            </button>
+            <p className="text-sm text-gray-400">
+              Click anywhere to continue
+            </p>
           </div>
         )}
       </div>
