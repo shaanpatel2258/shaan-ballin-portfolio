@@ -1,4 +1,4 @@
-name: Deploy to GitHub PagesAdd commentMore actions
+name: Deploy to GitHub
 
 on:
   push:
