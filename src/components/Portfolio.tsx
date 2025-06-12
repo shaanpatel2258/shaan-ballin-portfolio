@@ -19,10 +19,10 @@ const Portfolio = () => {
   };
 
   const titles = [
-    'Software Engineer',
-    'Sports Fanatic', 
-    'Travel Enthusiast',
-    'Curious Learner'
+    'Software engineer',
+    'Sports fanatic', 
+    'Travel enthusiast',
+    'Curious learner'
   ];
 
   return (
