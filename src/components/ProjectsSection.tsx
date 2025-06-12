@@ -9,29 +9,25 @@ const ProjectsSection = () => {
       title: "E-Commerce Platform",
       description: "Full-stack MERN application with payment integration and real-time inventory management.",
       tech: ["React", "Node.js", "MongoDB", "Stripe"],
-      gradient: "from-blue-500 to-purple-600",
-      link: "https://www.google.com/search?q=red"
+      gradient: "from-blue-500 to-purple-600"
     },
     {
       title: "AI Task Manager",
       description: "Smart productivity app using machine learning to prioritize and categorize tasks automatically.",
       tech: ["Python", "TensorFlow", "React", "FastAPI"],
-      gradient: "from-green-500 to-teal-600",
-      link: "https://www.google.com/search?q=blue"
+      gradient: "from-green-500 to-teal-600"
     },
     {
       title: "Real-time Chat App",
       description: "Scalable messaging platform with end-to-end encryption and multimedia support.",
       tech: ["TypeScript", "Socket.io", "Redis", "PostgreSQL"],
-      gradient: "from-pink-500 to-red-600",
-      link: "https://www.google.com/search?q=green"
+      gradient: "from-pink-500 to-red-600"
     },
     {
       title: "Data Visualization Dashboard",
       description: "Interactive analytics platform for business intelligence with real-time data processing.",
       tech: ["D3.js", "React", "Python", "AWS"],
-      gradient: "from-yellow-500 to-orange-600",
-      link: "https://www.google.com/search?q=yellow"
+      gradient: "from-yellow-500 to-orange-600"
     }
   ];
 
@@ -48,7 +44,7 @@ const ProjectsSection = () => {
           {projects.map((project, index) => (
             <a
               key={index}
-              href={project.link}
+              href="https://github.com"
               target="_blank"
               rel="noopener noreferrer"
               className={`group relative bg-gray-900/50 backdrop-blur-sm rounded-2xl p-8 border border-gray-800 hover:border-orange-500/50 transition-all duration-500 transform hover:scale-105 cursor-pointer block ${

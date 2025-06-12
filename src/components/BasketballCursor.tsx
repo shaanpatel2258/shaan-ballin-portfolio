@@ -28,12 +28,12 @@ const BasketballCursor = () => {
         isVisible ? 'opacity-100' : 'opacity-0'
       }`}
       style={{
-        left: position.x - 6,
-        top: position.y - 6,
+        left: position.x - 12,
+        top: position.y - 12,
         transform: 'translate(-50%, -50%)'
       }}
     >
-      <div className="w-5 h-5 bg-gradient-to-br from-orange-400 to-orange-600 rounded-full relative shadow-lg">
+      <div className="w-6 h-6 bg-gradient-to-br from-orange-400 to-orange-600 rounded-full relative shadow-lg">
         {/* Basketball curved lines */}
         <div className="absolute inset-0 rounded-full border-2 border-orange-800 opacity-80" />
         
@@ -45,18 +45,18 @@ const BasketballCursor = () => {
         
         {/* Diagonal curved lines */}
         <div className="absolute inset-0">
-          <svg className="w-full h-full" viewBox="0 0 20 20">
+          <svg className="w-full h-full" viewBox="0 0 24 24">
             <path 
-              d="M 5 2.5 Q 10 7.5 15 2.5" 
+              d="M 6 3 Q 12 9 18 3" 
               stroke="#9a3412" 
-              strokeWidth="0.6" 
+              strokeWidth="0.8" 
               fill="none" 
               opacity="0.8"
             />
             <path 
-              d="M 5 17.5 Q 10 12.5 15 17.5" 
+              d="M 6 21 Q 12 15 18 21" 
               stroke="#9a3412" 
-              strokeWidth="0.6" 
+              strokeWidth="0.8" 
               fill="none" 
               opacity="0.8"
             />

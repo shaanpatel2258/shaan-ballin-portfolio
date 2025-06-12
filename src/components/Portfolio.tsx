@@ -33,13 +33,13 @@ const Portfolio = () => {
       {/* Hero Section */}
       <section className="min-h-screen flex items-center justify-center relative z-10 px-4">
         <div className={`text-center transition-all duration-1500 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          {/* Main heading with smooth gradient transitions */}
+          {/* Main heading */}
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6">
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-red-500 to-pink-500 bg-size-200 animate-[gradient_4s_ease-in-out_infinite]">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-red-500 to-pink-500">
               Shaan
             </span>
             <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-size-200 animate-[gradient_4s_ease-in-out_infinite] [animation-delay:2s]">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500">
               Patel
             </span>
           </h1>
