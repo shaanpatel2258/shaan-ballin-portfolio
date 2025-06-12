@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages
+name: Deploy to GitHub PagesAdd commentMore actions
 
 on:
   push:
@@ -21,9 +21,7 @@ jobs:
         run: npm install
 
       - name: Build the site
-        run: |
-          export GITHUB_PAGES=true
-          npm run build
+        run: npm run build
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
