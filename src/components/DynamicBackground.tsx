@@ -1,4 +1,3 @@
-
 import { useEffect, useRef } from 'react';
 
 const DynamicBackground = () => {
@@ -65,12 +64,12 @@ const DynamicBackground = () => {
       ctx.stroke();
     };
 
-    // Draw NBA Championship Trophy based on reference image
+    // Draw NBA Championship Trophy (original design)
     const drawTrophy = () => {
       const centerX = canvas.width / 2;
       const centerY = canvas.height / 2;
       
-      ctx.globalAlpha = 0.4; // Much higher opacity
+      ctx.globalAlpha = 0.6; // Higher opacity
       
       // Trophy base (black/dark brown)
       ctx.fillStyle = '#3c2415';
@@ -106,7 +105,7 @@ const DynamicBackground = () => {
       // Basketball lines
       ctx.strokeStyle = '#cc5500';
       ctx.lineWidth = 2;
-      ctx.globalAlpha = 0.6;
+      ctx.globalAlpha = 0.8;
       
       // Vertical line on basketball
       ctx.beginPath();
@@ -126,7 +125,7 @@ const DynamicBackground = () => {
       ctx.stroke();
       
       // Trophy details and diamond pattern
-      ctx.globalAlpha = 0.3;
+      ctx.globalAlpha = 0.5;
       ctx.strokeStyle = '#b8860b';
       ctx.lineWidth = 1;
       
@@ -142,6 +141,7 @@ const DynamicBackground = () => {
       }
     };
 
+    // Create particles (more basketball-like ones)
     const particles: Array<{
       x: number;
       y: number;
@@ -152,7 +152,6 @@ const DynamicBackground = () => {
       isBasketball: boolean;
     }> = [];
 
-    // Create particles (more basketball-like ones)
     for (let i = 0; i < 100; i++) {
       particles.push({
         x: Math.random() * canvas.width,

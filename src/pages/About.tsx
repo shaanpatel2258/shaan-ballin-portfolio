@@ -43,7 +43,7 @@ const About = () => {
           <div className="space-y-8">
             <div>
               <h1 className="text-4xl md:text-6xl font-bold mb-4">
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-red-500 to-pink-500">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-yellow-300 to-amber-400 bg-size-200 animate-[gradient_3s_ease-in-out_infinite]">
                   About Me
                 </span>
               </h1>
@@ -53,8 +53,10 @@ const About = () => {
             </div>
 
             <div>
-              <h2 className="text-2xl md:text-3xl font-semibold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">
-                Work Experience
+              <h2 className="text-2xl md:text-3xl font-semibold mb-6">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-yellow-300 to-amber-400 bg-size-200 animate-[gradient_3s_ease-in-out_infinite]">
+                  Work Experience
+                </span>
               </h2>
               <div className="space-y-4">
                 {workExperience.map((experience, index) => (
