@@ -48,13 +48,13 @@ const Portfolio = () => {
       {/* Hero Section */}
       <section className="min-h-screen flex items-center justify-center relative z-10 px-4">
         <div className={`text-center transition-all duration-1500 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          {/* Main heading with white-based gradient transitions */}
+          {/* Main heading with dynamic white-gold gradient */}
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6">
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-200 to-gray-100 bg-size-200 animate-[gradient_4s_ease-in-out_infinite]">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-yellow-300 to-amber-400 bg-size-200 animate-[gradient_3s_ease-in-out_infinite]">
               Shaan
             </span>
             <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-100 via-white to-gray-200 bg-size-200 animate-[gradient_4s_ease-in-out_infinite] [animation-delay:2s]">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-white to-yellow-300 bg-size-200 animate-[gradient_3s_ease-in-out_infinite] [animation-delay:1.5s]">
               Patel
             </span>
           </h1>
@@ -99,44 +99,44 @@ const Portfolio = () => {
           </button>
         </div>
 
-        {/* Floating basketball elements - made darker */}
-        <div className="absolute top-20 left-10 w-16 h-16 animate-bounce opacity-30" style={{ animationDelay: '0s' }}>
-          <div className="w-full h-full bg-gradient-to-br from-orange-700 to-orange-900 rounded-full relative shadow-xl">
-            <div className="absolute inset-0 rounded-full border-2 border-orange-900 opacity-80" />
-            <div className="absolute top-0 left-1/2 w-0.5 h-full bg-orange-900 opacity-80" style={{ transform: 'translateX(-50%)' }} />
-            <div className="absolute top-1/2 left-0 w-full h-0.5 bg-orange-900 opacity-80" style={{ transform: 'translateY(-50%)' }} />
+        {/* Floating basketball elements - much higher opacity */}
+        <div className="absolute top-20 left-10 w-16 h-16 animate-bounce opacity-80" style={{ animationDelay: '0s' }}>
+          <div className="w-full h-full bg-gradient-to-br from-orange-500 to-orange-700 rounded-full relative shadow-2xl">
+            <div className="absolute inset-0 rounded-full border-3 border-orange-900" />
+            <div className="absolute top-0 left-1/2 w-1 h-full bg-orange-900" style={{ transform: 'translateX(-50%)' }} />
+            <div className="absolute top-1/2 left-0 w-full h-1 bg-orange-900" style={{ transform: 'translateY(-50%)' }} />
             <div className="absolute inset-0">
               <svg className="w-full h-full" viewBox="0 0 64 64">
-                <path d="M 16 8 Q 32 24 48 8" stroke="#7c2d12" strokeWidth="2" fill="none" opacity="0.8" />
-                <path d="M 16 56 Q 32 40 48 56" stroke="#7c2d12" strokeWidth="2" fill="none" opacity="0.8" />
+                <path d="M 16 8 Q 32 24 48 8" stroke="#7c2d12" strokeWidth="3" fill="none" />
+                <path d="M 16 56 Q 32 40 48 56" stroke="#7c2d12" strokeWidth="3" fill="none" />
               </svg>
             </div>
           </div>
         </div>
 
-        <div className="absolute top-40 right-20 w-12 h-12 animate-bounce opacity-30" style={{ animationDelay: '1s' }}>
-          <div className="w-full h-full bg-gradient-to-br from-orange-700 to-orange-900 rounded-full relative shadow-xl">
-            <div className="absolute inset-0 rounded-full border-2 border-orange-900 opacity-80" />
-            <div className="absolute top-0 left-1/2 w-0.5 h-full bg-orange-900 opacity-80" style={{ transform: 'translateX(-50%)' }} />
-            <div className="absolute top-1/2 left-0 w-full h-0.5 bg-orange-900 opacity-80" style={{ transform: 'translateY(-50%)' }} />
+        <div className="absolute top-40 right-20 w-12 h-12 animate-bounce opacity-80" style={{ animationDelay: '1s' }}>
+          <div className="w-full h-full bg-gradient-to-br from-orange-500 to-orange-700 rounded-full relative shadow-2xl">
+            <div className="absolute inset-0 rounded-full border-2 border-orange-900" />
+            <div className="absolute top-0 left-1/2 w-1 h-full bg-orange-900" style={{ transform: 'translateX(-50%)' }} />
+            <div className="absolute top-1/2 left-0 w-full h-1 bg-orange-900" style={{ transform: 'translateY(-50%)' }} />
             <div className="absolute inset-0">
               <svg className="w-full h-full" viewBox="0 0 48 48">
-                <path d="M 12 6 Q 24 18 36 6" stroke="#7c2d12" strokeWidth="1.5" fill="none" opacity="0.8" />
-                <path d="M 12 42 Q 24 30 36 42" stroke="#7c2d12" strokeWidth="1.5" fill="none" opacity="0.8" />
+                <path d="M 12 6 Q 24 18 36 6" stroke="#7c2d12" strokeWidth="2" fill="none" />
+                <path d="M 12 42 Q 24 30 36 42" stroke="#7c2d12" strokeWidth="2" fill="none" />
               </svg>
             </div>
           </div>
         </div>
 
-        <div className="absolute bottom-40 left-20 w-20 h-20 animate-bounce opacity-30" style={{ animationDelay: '2s' }}>
-          <div className="w-full h-full bg-gradient-to-br from-orange-700 to-orange-900 rounded-full relative shadow-xl">
-            <div className="absolute inset-0 rounded-full border-2 border-orange-900 opacity-80" />
-            <div className="absolute top-0 left-1/2 w-0.5 h-full bg-orange-900 opacity-80" style={{ transform: 'translateX(-50%)' }} />
-            <div className="absolute top-1/2 left-0 w-full h-0.5 bg-orange-900 opacity-80" style={{ transform: 'translateY(-50%)' }} />
+        <div className="absolute bottom-40 left-20 w-20 h-20 animate-bounce opacity-80" style={{ animationDelay: '2s' }}>
+          <div className="w-full h-full bg-gradient-to-br from-orange-500 to-orange-700 rounded-full relative shadow-2xl">
+            <div className="absolute inset-0 rounded-full border-3 border-orange-900" />
+            <div className="absolute top-0 left-1/2 w-1 h-full bg-orange-900" style={{ transform: 'translateX(-50%)' }} />
+            <div className="absolute top-1/2 left-0 w-full h-1 bg-orange-900" style={{ transform: 'translateY(-50%)' }} />
             <div className="absolute inset-0">
               <svg className="w-full h-full" viewBox="0 0 80 80">
-                <path d="M 20 10 Q 40 30 60 10" stroke="#7c2d12" strokeWidth="2.5" fill="none" opacity="0.8" />
-                <path d="M 20 70 Q 40 50 60 70" stroke="#7c2d12" strokeWidth="2.5" fill="none" opacity="0.8" />
+                <path d="M 20 10 Q 40 30 60 10" stroke="#7c2d12" strokeWidth="4" fill="none" />
+                <path d="M 20 70 Q 40 50 60 70" stroke="#7c2d12" strokeWidth="4" fill="none" />
               </svg>
             </div>
           </div>

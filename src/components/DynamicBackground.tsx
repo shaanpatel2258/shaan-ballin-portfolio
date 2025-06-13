@@ -65,35 +65,81 @@ const DynamicBackground = () => {
       ctx.stroke();
     };
 
-    // Draw NBA Finals Trophy in center
+    // Draw NBA Championship Trophy based on reference image
     const drawTrophy = () => {
       const centerX = canvas.width / 2;
       const centerY = canvas.height / 2;
       
-      ctx.globalAlpha = 0.1;
-      ctx.fillStyle = '#ffd700';
+      ctx.globalAlpha = 0.4; // Much higher opacity
       
-      // Trophy base
-      ctx.fillRect(centerX - 15, centerY + 40, 30, 20);
+      // Trophy base (black/dark brown)
+      ctx.fillStyle = '#3c2415';
+      ctx.fillRect(centerX - 25, centerY + 50, 50, 15);
+      ctx.fillRect(centerX - 20, centerY + 40, 40, 10);
       
       // Trophy stem
-      ctx.fillRect(centerX - 5, centerY + 20, 10, 20);
+      ctx.fillStyle = '#ffd700';
+      ctx.fillRect(centerX - 8, centerY + 15, 16, 25);
       
-      // Trophy cup
+      // Trophy cup base (wider part)
+      ctx.fillStyle = '#ffed4e';
       ctx.beginPath();
-      ctx.ellipse(centerX, centerY, 25, 15, 0, 0, Math.PI * 2);
+      ctx.moveTo(centerX - 25, centerY + 15);
+      ctx.lineTo(centerX + 25, centerY + 15);
+      ctx.lineTo(centerX + 20, centerY - 5);
+      ctx.lineTo(centerX - 20, centerY - 5);
+      ctx.closePath();
       ctx.fill();
       
-      // Trophy handles
-      ctx.strokeStyle = '#ffd700';
-      ctx.lineWidth = 3;
+      // Trophy cup main body
+      ctx.fillStyle = '#ffd700';
       ctx.beginPath();
-      ctx.arc(centerX - 30, centerY, 8, Math.PI * 0.3, Math.PI * 1.7);
+      ctx.ellipse(centerX, centerY - 15, 22, 12, 0, 0, Math.PI * 2);
+      ctx.fill();
+      
+      // Basketball on top
+      ctx.fillStyle = '#ff8c00';
+      ctx.beginPath();
+      ctx.arc(centerX, centerY - 30, 12, 0, Math.PI * 2);
+      ctx.fill();
+      
+      // Basketball lines
+      ctx.strokeStyle = '#cc5500';
+      ctx.lineWidth = 2;
+      ctx.globalAlpha = 0.6;
+      
+      // Vertical line on basketball
+      ctx.beginPath();
+      ctx.moveTo(centerX, centerY - 42);
+      ctx.lineTo(centerX, centerY - 18);
       ctx.stroke();
       
+      // Horizontal line on basketball
       ctx.beginPath();
-      ctx.arc(centerX + 30, centerY, 8, Math.PI * 1.3, Math.PI * 0.7);
+      ctx.moveTo(centerX - 12, centerY - 30);
+      ctx.lineTo(centerX + 12, centerY - 30);
       ctx.stroke();
+      
+      // Curved lines on basketball
+      ctx.beginPath();
+      ctx.arc(centerX, centerY - 30, 10, 0, Math.PI * 2);
+      ctx.stroke();
+      
+      // Trophy details and diamond pattern
+      ctx.globalAlpha = 0.3;
+      ctx.strokeStyle = '#b8860b';
+      ctx.lineWidth = 1;
+      
+      // Diamond pattern on cup
+      for (let i = -15; i <= 15; i += 8) {
+        ctx.beginPath();
+        ctx.moveTo(centerX + i, centerY - 25);
+        ctx.lineTo(centerX + i + 4, centerY - 10);
+        ctx.lineTo(centerX + i, centerY + 5);
+        ctx.lineTo(centerX + i - 4, centerY - 10);
+        ctx.closePath();
+        ctx.stroke();
+      }
     };
 
     const particles: Array<{
@@ -138,7 +184,7 @@ const DynamicBackground = () => {
         if (particle.y < 0 || particle.y > canvas.height) particle.dy *= -1;
 
         // Draw particle
-        ctx.globalAlpha = particle.isBasketball ? 0.5 : 0.25;
+        ctx.globalAlpha = particle.isBasketball ? 0.7 : 0.35; // Higher opacity for basketballs
         ctx.beginPath();
         ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
         ctx.fillStyle = particle.color;
@@ -148,7 +194,7 @@ const DynamicBackground = () => {
         if (particle.isBasketball) {
           ctx.strokeStyle = '#9a3412';
           ctx.lineWidth = 0.8;
-          ctx.globalAlpha = 0.7;
+          ctx.globalAlpha = 0.8; // Higher opacity for basketball lines
           
           // Vertical line
           ctx.beginPath();
