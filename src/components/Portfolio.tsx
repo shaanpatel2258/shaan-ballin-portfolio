@@ -27,7 +27,10 @@ const Portfolio = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-black text-white relative overflow-x-hidden">
+    <div className="min-h-screen bg-amber-900 text-white relative overflow-x-hidden" style={{
+      backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cpattern id='hardwood' patternUnits='userSpaceOnUse' width='100' height='100'%3E%3Crect width='100' height='100' fill='%23D2691E'/%3E%3Cg fill='%23A0522D' opacity='0.3'%3E%3Crect x='0' y='0' width='100' height='5'/%3E%3Crect x='0' y='10' width='100' height='3'/%3E%3Crect x='0' y='17' width='100' height='2'/%3E%3Crect x='0' y='25' width='100' height='4'/%3E%3Crect x='0' y='33' width='100' height='2'/%3E%3Crect x='0' y='40' width='100' height='5'/%3E%3Crect x='0' y='50' width='100' height='3'/%3E%3Crect x='0' y='57' width='100' height='2'/%3E%3Crect x='0' y='65' width='100' height='4'/%3E%3Crect x='0' y='73' width='100' height='2'/%3E%3Crect x='0' y='80' width='100' height='5'/%3E%3Crect x='0' y='90' width='100' height='3'/%3E%3C/g%3E%3C/pattern%3E%3C/defs%3E%3Crect width='100' height='100' fill='url(%23hardwood)'/%3E%3C/svg%3E")`,
+      backgroundSize: '200px 200px'
+    }}>
       <BasketballCursor />
       <DynamicBackground />
       
@@ -35,7 +38,7 @@ const Portfolio = () => {
       <nav className="fixed top-6 right-6 z-50">
         <a 
           href="/about"
-          className="flex items-center space-x-2 px-4 py-2 bg-gray-900/80 backdrop-blur-sm border border-gray-700/50 rounded-full text-gray-300 hover:text-white hover:border-orange-500/50 transition-all duration-300"
+          className="flex items-center space-x-2 px-4 py-2 bg-amber-800/80 backdrop-blur-sm border border-amber-700/50 rounded-full text-gray-100 hover:text-white hover:border-orange-500/50 transition-all duration-300"
         >
           <User size={20} />
           <span>About Me</span>
