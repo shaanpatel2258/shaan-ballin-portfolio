@@ -9,7 +9,7 @@ const ProjectsSection = () => {
       description: "Full-stack MERN application with payment integration and real-time inventory management.",
       tech: ["React", "Node.js", "MongoDB", "Stripe"],
       gradient: "from-blue-500 to-purple-600",
-      link: "https://www.google.com/search?q=redd"
+      link: "https://www.google.com/search?q=reddd"
     },
     {
       title: "AI Task Manager",
