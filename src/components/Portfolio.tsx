@@ -1,5 +1,6 @@
+
 import { useEffect, useState } from 'react';
-import { ChevronDown, Linkedin, Github, Mail, FileText } from 'lucide-react';
+import { ChevronDown, Linkedin, Github, Mail, FileText, User } from 'lucide-react';
 import ProjectsSection from './ProjectsSection';
 import BasketballCursor from './BasketballCursor';
 import DynamicBackground from './DynamicBackground';
@@ -29,6 +30,17 @@ const Portfolio = () => {
     <div className="min-h-screen bg-black text-white relative overflow-x-hidden">
       <BasketballCursor />
       <DynamicBackground />
+      
+      {/* Navigation */}
+      <nav className="fixed top-6 right-6 z-50">
+        <a 
+          href="/about"
+          className="flex items-center space-x-2 px-4 py-2 bg-gray-900/80 backdrop-blur-sm border border-gray-700/50 rounded-full text-gray-300 hover:text-white hover:border-orange-500/50 transition-all duration-300"
+        >
+          <User size={20} />
+          <span>About Me</span>
+        </a>
+      </nav>
       
       {/* Hero Section */}
       <section className="min-h-screen flex items-center justify-center relative z-10 px-4">
