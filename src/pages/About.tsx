@@ -1,14 +1,20 @@
 
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import DynamicBackground from '../components/DynamicBackground';
 import BasketballCursor from '../components/BasketballCursor';
 
 const About = () => {
   const [isLoaded, setIsLoaded] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     setIsLoaded(true);
   }, []);
+
+  const handleBackHome = () => {
+    navigate('/', { state: { skipIntro: true } });
+  };
 
   const workExperience = [
     'Software Engineer @ Nutanix',
@@ -72,12 +78,12 @@ const About = () => {
             </div>
 
             <div className="pt-6">
-              <a 
-                href="/"
+              <button 
+                onClick={handleBackHome}
                 className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-orange-500 to-red-600 rounded-full text-lg font-semibold hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-orange-500/25"
               >
                 ← Back to Home
-              </a>
+              </button>
             </div>
           </div>
         </div>

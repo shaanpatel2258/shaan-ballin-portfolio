@@ -64,59 +64,76 @@ const DynamicBackground = () => {
       ctx.stroke();
     };
 
-    // Draw NBA Championship Trophy (simple design without basketball)
+    // Draw completely new trophy design
     const drawTrophy = () => {
       const centerX = canvas.width / 2;
       const centerY = canvas.height / 2;
       
-      ctx.globalAlpha = 0.8; // Higher opacity
+      ctx.globalAlpha = 0.8;
       
-      // Trophy base (black/dark brown)
-      ctx.fillStyle = '#3c2415';
-      ctx.fillRect(centerX - 25, centerY + 50, 50, 15);
+      // Trophy base (wider and more stable)
+      ctx.fillStyle = '#654321';
+      ctx.fillRect(centerX - 30, centerY + 60, 60, 8);
+      ctx.fillRect(centerX - 25, centerY + 50, 50, 10);
       ctx.fillRect(centerX - 20, centerY + 40, 40, 10);
       
-      // Trophy stem
+      // Trophy stem (taller)
       ctx.fillStyle = '#ffd700';
-      ctx.fillRect(centerX - 8, centerY + 15, 16, 25);
+      ctx.fillRect(centerX - 6, centerY + 10, 12, 30);
       
-      // Trophy cup base (wider part)
+      // Main trophy cup (sleeker design)
       ctx.fillStyle = '#ffed4e';
       ctx.beginPath();
-      ctx.moveTo(centerX - 25, centerY + 15);
-      ctx.lineTo(centerX + 25, centerY + 15);
-      ctx.lineTo(centerX + 20, centerY - 5);
-      ctx.lineTo(centerX - 20, centerY - 5);
+      ctx.moveTo(centerX - 28, centerY + 10);
+      ctx.lineTo(centerX + 28, centerY + 10);
+      ctx.lineTo(centerX + 22, centerY - 10);
+      ctx.lineTo(centerX - 22, centerY - 10);
       ctx.closePath();
       ctx.fill();
       
-      // Trophy cup main body
+      // Trophy cup top section
       ctx.fillStyle = '#ffd700';
       ctx.beginPath();
-      ctx.ellipse(centerX, centerY - 15, 22, 12, 0, 0, Math.PI * 2);
+      ctx.ellipse(centerX, centerY - 20, 24, 15, 0, 0, Math.PI * 2);
       ctx.fill();
       
-      // Trophy top (simple gold sphere - NO BASKETBALL)
+      // Trophy handles (elegant curves)
+      ctx.strokeStyle = '#b8860b';
+      ctx.lineWidth = 4;
+      ctx.beginPath();
+      ctx.arc(centerX - 35, centerY - 5, 12, -Math.PI/3, Math.PI/3);
+      ctx.stroke();
+      
+      ctx.beginPath();
+      ctx.arc(centerX + 35, centerY - 5, 12, Math.PI*2/3, Math.PI*4/3);
+      ctx.stroke();
+      
+      // Trophy crown/top ornament
       ctx.fillStyle = '#ffd700';
       ctx.beginPath();
-      ctx.arc(centerX, centerY - 30, 8, 0, Math.PI * 2);
+      ctx.moveTo(centerX - 8, centerY - 35);
+      ctx.lineTo(centerX, centerY - 45);
+      ctx.lineTo(centerX + 8, centerY - 35);
+      ctx.lineTo(centerX + 5, centerY - 30);
+      ctx.lineTo(centerX - 5, centerY - 30);
+      ctx.closePath();
       ctx.fill();
       
-      // Trophy details and diamond pattern
+      // Trophy engravings/details
       ctx.globalAlpha = 0.6;
       ctx.strokeStyle = '#b8860b';
       ctx.lineWidth = 1;
       
-      // Diamond pattern on cup
-      for (let i = -15; i <= 15; i += 8) {
-        ctx.beginPath();
-        ctx.moveTo(centerX + i, centerY - 25);
-        ctx.lineTo(centerX + i + 4, centerY - 10);
-        ctx.lineTo(centerX + i, centerY + 5);
-        ctx.lineTo(centerX + i - 4, centerY - 10);
-        ctx.closePath();
-        ctx.stroke();
-      }
+      // Decorative lines on cup
+      ctx.beginPath();
+      ctx.moveTo(centerX - 20, centerY - 5);
+      ctx.lineTo(centerX + 20, centerY - 5);
+      ctx.stroke();
+      
+      ctx.beginPath();
+      ctx.moveTo(centerX - 18, centerY + 2);
+      ctx.lineTo(centerX + 18, centerY + 2);
+      ctx.stroke();
     };
 
     // Create particles (fewer and larger for better visibility)
@@ -167,11 +184,11 @@ const DynamicBackground = () => {
         ctx.fillStyle = particle.color;
         ctx.fill();
 
-        // Enhanced basketball lines for basketball particles (CURVED LINES)
+        // Enhanced basketball lines for basketball particles (same as big basketballs)
         if (particle.isBasketball) {
           ctx.strokeStyle = '#9a3412';
           ctx.lineWidth = 1;
-          ctx.globalAlpha = 0.9; // Higher opacity for basketball lines
+          ctx.globalAlpha = 0.9;
           
           // Main seam lines (curved like a real basketball)
           ctx.beginPath();
