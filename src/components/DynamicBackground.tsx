@@ -1,3 +1,4 @@
+
 import { useEffect, useRef } from 'react';
 
 const DynamicBackground = () => {
@@ -64,12 +65,12 @@ const DynamicBackground = () => {
       ctx.stroke();
     };
 
-    // Draw NBA Championship Trophy (original design)
+    // Draw NBA Championship Trophy (without basketball)
     const drawTrophy = () => {
       const centerX = canvas.width / 2;
       const centerY = canvas.height / 2;
       
-      ctx.globalAlpha = 0.6; // Higher opacity
+      ctx.globalAlpha = 0.8; // Higher opacity
       
       // Trophy base (black/dark brown)
       ctx.fillStyle = '#3c2415';
@@ -96,36 +97,14 @@ const DynamicBackground = () => {
       ctx.ellipse(centerX, centerY - 15, 22, 12, 0, 0, Math.PI * 2);
       ctx.fill();
       
-      // Basketball on top
-      ctx.fillStyle = '#ff8c00';
+      // Trophy top (simple gold sphere instead of basketball)
+      ctx.fillStyle = '#ffd700';
       ctx.beginPath();
-      ctx.arc(centerX, centerY - 30, 12, 0, Math.PI * 2);
+      ctx.arc(centerX, centerY - 30, 8, 0, Math.PI * 2);
       ctx.fill();
       
-      // Basketball lines
-      ctx.strokeStyle = '#cc5500';
-      ctx.lineWidth = 2;
-      ctx.globalAlpha = 0.8;
-      
-      // Vertical line on basketball
-      ctx.beginPath();
-      ctx.moveTo(centerX, centerY - 42);
-      ctx.lineTo(centerX, centerY - 18);
-      ctx.stroke();
-      
-      // Horizontal line on basketball
-      ctx.beginPath();
-      ctx.moveTo(centerX - 12, centerY - 30);
-      ctx.lineTo(centerX + 12, centerY - 30);
-      ctx.stroke();
-      
-      // Curved lines on basketball
-      ctx.beginPath();
-      ctx.arc(centerX, centerY - 30, 10, 0, Math.PI * 2);
-      ctx.stroke();
-      
       // Trophy details and diamond pattern
-      ctx.globalAlpha = 0.5;
+      ctx.globalAlpha = 0.6;
       ctx.strokeStyle = '#b8860b';
       ctx.lineWidth = 1;
       
@@ -141,7 +120,7 @@ const DynamicBackground = () => {
       }
     };
 
-    // Create particles (more basketball-like ones)
+    // Create particles (fewer and larger for better visibility)
     const particles: Array<{
       x: number;
       y: number;
@@ -152,15 +131,15 @@ const DynamicBackground = () => {
       isBasketball: boolean;
     }> = [];
 
-    for (let i = 0; i < 100; i++) {
+    for (let i = 0; i < 60; i++) { // Reduced from 100 to 60
       particles.push({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
         dx: (Math.random() - 0.5) * 1.2,
         dy: (Math.random() - 0.5) * 1.2,
-        size: Math.random() * 4 + 2,
-        color: i < 20 ? '#ea580c' : `hsl(${Math.random() * 40 + 20}, 70%, 50%)`,
-        isBasketball: i < 20
+        size: Math.random() * 6 + 4, // Increased minimum size from 2 to 4, max from 6 to 10
+        color: i < 15 ? '#ea580c' : `hsl(${Math.random() * 40 + 20}, 70%, 50%)`, // Reduced basketball particles from 20 to 15
+        isBasketball: i < 15
       });
     }
 
@@ -183,7 +162,7 @@ const DynamicBackground = () => {
         if (particle.y < 0 || particle.y > canvas.height) particle.dy *= -1;
 
         // Draw particle
-        ctx.globalAlpha = particle.isBasketball ? 0.7 : 0.35; // Higher opacity for basketballs
+        ctx.globalAlpha = particle.isBasketball ? 0.8 : 0.5; // Increased opacity
         ctx.beginPath();
         ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
         ctx.fillStyle = particle.color;
@@ -192,8 +171,8 @@ const DynamicBackground = () => {
         // Enhanced basketball lines for basketball particles
         if (particle.isBasketball) {
           ctx.strokeStyle = '#9a3412';
-          ctx.lineWidth = 0.8;
-          ctx.globalAlpha = 0.8; // Higher opacity for basketball lines
+          ctx.lineWidth = 1;
+          ctx.globalAlpha = 0.9; // Higher opacity for basketball lines
           
           // Vertical line
           ctx.beginPath();
@@ -213,7 +192,7 @@ const DynamicBackground = () => {
           ctx.stroke();
         }
 
-        // Connect nearby particles
+        // Connect nearby particles (with higher opacity)
         particles.slice(index + 1).forEach(otherParticle => {
           const dx = particle.x - otherParticle.x;
           const dy = particle.y - otherParticle.y;
@@ -224,7 +203,7 @@ const DynamicBackground = () => {
             ctx.moveTo(particle.x, particle.y);
             ctx.lineTo(otherParticle.x, otherParticle.y);
             ctx.strokeStyle = particle.color;
-            ctx.globalAlpha = 0.08;
+            ctx.globalAlpha = 0.15; // Increased from 0.08
             ctx.lineWidth = 1;
             ctx.stroke();
           }
