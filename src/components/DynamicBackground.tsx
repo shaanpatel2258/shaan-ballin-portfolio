@@ -1,4 +1,3 @@
-
 import { useEffect, useRef } from 'react';
 
 const DynamicBackground = () => {
@@ -65,7 +64,7 @@ const DynamicBackground = () => {
       ctx.stroke();
     };
 
-    // Draw NBA Championship Trophy (without basketball)
+    // Draw NBA Championship Trophy (simple design without basketball)
     const drawTrophy = () => {
       const centerX = canvas.width / 2;
       const centerY = canvas.height / 2;
@@ -97,7 +96,7 @@ const DynamicBackground = () => {
       ctx.ellipse(centerX, centerY - 15, 22, 12, 0, 0, Math.PI * 2);
       ctx.fill();
       
-      // Trophy top (simple gold sphere instead of basketball)
+      // Trophy top (simple gold sphere - NO BASKETBALL)
       ctx.fillStyle = '#ffd700';
       ctx.beginPath();
       ctx.arc(centerX, centerY - 30, 8, 0, Math.PI * 2);
@@ -168,27 +167,28 @@ const DynamicBackground = () => {
         ctx.fillStyle = particle.color;
         ctx.fill();
 
-        // Enhanced basketball lines for basketball particles
+        // Enhanced basketball lines for basketball particles (CURVED LINES)
         if (particle.isBasketball) {
           ctx.strokeStyle = '#9a3412';
           ctx.lineWidth = 1;
           ctx.globalAlpha = 0.9; // Higher opacity for basketball lines
           
-          // Vertical line
+          // Main seam lines (curved like a real basketball)
           ctx.beginPath();
-          ctx.moveTo(particle.x, particle.y - particle.size);
-          ctx.lineTo(particle.x, particle.y + particle.size);
+          ctx.arc(particle.x, particle.y, particle.size * 0.9, -Math.PI/2, Math.PI/2);
           ctx.stroke();
           
-          // Horizontal line
           ctx.beginPath();
-          ctx.moveTo(particle.x - particle.size, particle.y);
-          ctx.lineTo(particle.x + particle.size, particle.y);
+          ctx.arc(particle.x, particle.y, particle.size * 0.9, Math.PI/2, -Math.PI/2);
           ctx.stroke();
           
-          // Curved lines for more realistic basketball look
+          // Horizontal seam lines
           ctx.beginPath();
-          ctx.arc(particle.x, particle.y, particle.size * 0.8, 0, Math.PI * 2);
+          ctx.ellipse(particle.x, particle.y, particle.size * 0.9, particle.size * 0.3, 0, 0, Math.PI * 2);
+          ctx.stroke();
+          
+          ctx.beginPath();
+          ctx.ellipse(particle.x, particle.y, particle.size * 0.9, particle.size * 0.3, Math.PI, 0, Math.PI * 2);
           ctx.stroke();
         }
 
