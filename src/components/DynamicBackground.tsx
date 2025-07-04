@@ -65,107 +65,123 @@ const DynamicBackground = () => {
       ctx.stroke();
     };
 
-    // Draw new modern trophy design
+    // NBA Finals Trophy (Larry O'Brien Trophy)
     const drawTrophy = () => {
       const centerX = canvas.width / 2;
       const centerY = canvas.height / 2;
       
       ctx.globalAlpha = 0.9;
       
-      // Trophy base - three tier marble base
-      const gradient1 = ctx.createLinearGradient(centerX - 40, centerY + 60, centerX + 40, centerY + 80);
-      gradient1.addColorStop(0, '#2c1810');
-      gradient1.addColorStop(0.5, '#4a2c1a');
-      gradient1.addColorStop(1, '#2c1810');
+      // Trophy base - black marble base
+      const baseGradient = ctx.createLinearGradient(centerX - 50, centerY + 50, centerX + 50, centerY + 80);
+      baseGradient.addColorStop(0, '#1a1a1a');
+      baseGradient.addColorStop(0.5, '#333333');
+      baseGradient.addColorStop(1, '#1a1a1a');
       
-      ctx.fillStyle = gradient1;
-      ctx.fillRect(centerX - 40, centerY + 70, 80, 15);
-      ctx.fillRect(centerX - 32, centerY + 60, 64, 10);
-      ctx.fillRect(centerX - 24, centerY + 50, 48, 10);
+      ctx.fillStyle = baseGradient;
+      ctx.fillRect(centerX - 50, centerY + 60, 100, 20);
+      ctx.fillRect(centerX - 40, centerY + 50, 80, 10);
       
-      // Trophy stem - elegant column
-      const stemGradient = ctx.createLinearGradient(centerX - 8, centerY + 10, centerX + 8, centerY + 50);
+      // Trophy stem - cylindrical
+      const stemGradient = ctx.createLinearGradient(centerX - 15, centerY + 20, centerX + 15, centerY + 50);
       stemGradient.addColorStop(0, '#ffd700');
       stemGradient.addColorStop(0.3, '#ffed4e');
       stemGradient.addColorStop(0.7, '#ffd700');
       stemGradient.addColorStop(1, '#b8860b');
       
       ctx.fillStyle = stemGradient;
-      ctx.fillRect(centerX - 8, centerY + 10, 16, 40);
+      ctx.fillRect(centerX - 15, centerY + 20, 30, 30);
       
-      // Trophy main body - sleek modern cup
-      const bodyGradient = ctx.createLinearGradient(centerX - 35, centerY - 30, centerX + 35, centerY + 10);
-      bodyGradient.addColorStop(0, '#ffed4e');
-      bodyGradient.addColorStop(0.2, '#ffd700');
-      bodyGradient.addColorStop(0.5, '#ffed4e');
-      bodyGradient.addColorStop(0.8, '#ffd700');
-      bodyGradient.addColorStop(1, '#b8860b');
+      // Ball section - basketball on top
+      const ballGradient = ctx.createRadialGradient(
+        centerX - 8, centerY - 15, 0,
+        centerX, centerY - 5, 25
+      );
+      ballGradient.addColorStop(0, '#ff8c00');
+      ballGradient.addColorStop(0.7, '#ea580c');
+      ballGradient.addColorStop(1, '#c2410c');
       
-      ctx.fillStyle = bodyGradient;
+      ctx.fillStyle = ballGradient;
       ctx.beginPath();
-      ctx.moveTo(centerX - 35, centerY + 10);
-      ctx.lineTo(centerX + 35, centerY + 10);
-      ctx.lineTo(centerX + 28, centerY - 25);
-      ctx.lineTo(centerX - 28, centerY - 25);
+      ctx.arc(centerX, centerY - 5, 25, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Basketball lines on the ball
+      ctx.strokeStyle = '#9a3412';
+      ctx.lineWidth = 2;
+      ctx.globalAlpha = 0.9;
+      
+      // Vertical line
+      ctx.beginPath();
+      ctx.moveTo(centerX, centerY - 30);
+      ctx.lineTo(centerX, centerY + 20);
+      ctx.stroke();
+      
+      // Horizontal line
+      ctx.beginPath();
+      ctx.moveTo(centerX - 25, centerY - 5);
+      ctx.lineTo(centerX + 25, centerY - 5);
+      ctx.stroke();
+      
+      // Curved seam lines
+      ctx.beginPath();
+      ctx.arc(centerX, centerY - 5, 22, -Math.PI/2, Math.PI/2);
+      ctx.stroke();
+      
+      ctx.beginPath();
+      ctx.arc(centerX, centerY - 5, 22, Math.PI/2, -Math.PI/2);
+      ctx.stroke();
+      
+      // Trophy cup section - elegant bowl shape
+      ctx.globalAlpha = 0.9;
+      const cupGradient = ctx.createLinearGradient(centerX - 35, centerY - 50, centerX + 35, centerY - 10);
+      cupGradient.addColorStop(0, '#ffed4e');
+      cupGradient.addColorStop(0.2, '#ffd700');
+      cupGradient.addColorStop(0.5, '#ffed4e');
+      cupGradient.addColorStop(0.8, '#ffd700');
+      cupGradient.addColorStop(1, '#b8860b');
+      
+      ctx.fillStyle = cupGradient;
+      ctx.beginPath();
+      ctx.moveTo(centerX - 35, centerY - 10);
+      ctx.lineTo(centerX + 35, centerY - 10);
+      ctx.quadraticCurveTo(centerX + 30, centerY - 40, centerX + 25, centerY - 50);
+      ctx.lineTo(centerX - 25, centerY - 50);
+      ctx.quadraticCurveTo(centerX - 30, centerY - 40, centerX - 35, centerY - 10);
       ctx.closePath();
       ctx.fill();
       
       // Trophy rim
-      const rimGradient = ctx.createLinearGradient(centerX - 30, centerY - 35, centerX + 30, centerY - 25);
+      const rimGradient = ctx.createLinearGradient(centerX - 35, centerY - 55, centerX + 35, centerY - 45);
       rimGradient.addColorStop(0, '#ffd700');
       rimGradient.addColorStop(0.5, '#ffed4e');
       rimGradient.addColorStop(1, '#ffd700');
       
       ctx.fillStyle = rimGradient;
       ctx.beginPath();
-      ctx.ellipse(centerX, centerY - 30, 30, 8, 0, 0, Math.PI * 2);
+      ctx.ellipse(centerX, centerY - 50, 25, 5, 0, 0, Math.PI * 2);
       ctx.fill();
       
-      // Trophy handles - elegant curves
+      // Trophy handles
       ctx.strokeStyle = '#b8860b';
-      ctx.lineWidth = 6;
+      ctx.lineWidth = 4;
       ctx.beginPath();
-      ctx.arc(centerX - 42, centerY - 8, 15, -Math.PI/2.5, Math.PI/2.5);
+      ctx.arc(centerX - 45, centerY - 30, 12, -Math.PI/3, Math.PI/3);
       ctx.stroke();
       
       ctx.beginPath();
-      ctx.arc(centerX + 42, centerY - 8, 15, Math.PI*0.6, Math.PI*1.4);
+      ctx.arc(centerX + 45, centerY - 30, 12, Math.PI*0.67, Math.PI*1.33);
       ctx.stroke();
-      
-      // Crown ornament
-      const crownGradient = ctx.createRadialGradient(centerX, centerY - 45, 0, centerX, centerY - 45, 15);
-      crownGradient.addColorStop(0, '#ffed4e');
-      crownGradient.addColorStop(0.7, '#ffd700');
-      crownGradient.addColorStop(1, '#b8860b');
-      
-      ctx.fillStyle = crownGradient;
-      ctx.beginPath();
-      ctx.arc(centerX, centerY - 45, 12, 0, Math.PI * 2);
-      ctx.fill();
-      
-      // Crown points
-      ctx.fillStyle = '#ffd700';
-      for (let i = 0; i < 8; i++) {
-        const angle = (i * Math.PI * 2) / 8;
-        const x = centerX + Math.cos(angle) * 8;
-        const y = centerY - 45 + Math.sin(angle) * 8;
-        ctx.beginPath();
-        ctx.moveTo(x, y);
-        ctx.lineTo(centerX + Math.cos(angle) * 15, centerY - 45 + Math.sin(angle) * 15);
-        ctx.lineTo(centerX + Math.cos(angle + 0.3) * 12, centerY - 45 + Math.sin(angle + 0.3) * 12);
-        ctx.closePath();
-        ctx.fill();
-      }
       
       // Trophy shine effect
-      ctx.globalAlpha = 0.3;
-      const shineGradient = ctx.createLinearGradient(centerX - 20, centerY - 25, centerX - 10, centerY - 15);
+      ctx.globalAlpha = 0.4;
+      const shineGradient = ctx.createLinearGradient(centerX - 20, centerY - 45, centerX - 10, centerY - 25);
       shineGradient.addColorStop(0, 'rgba(255, 255, 255, 0.8)');
       shineGradient.addColorStop(1, 'rgba(255, 255, 255, 0)');
       
       ctx.fillStyle = shineGradient;
       ctx.beginPath();
-      ctx.ellipse(centerX - 15, centerY - 20, 8, 20, -0.3, 0, Math.PI * 2);
+      ctx.ellipse(centerX - 15, centerY - 35, 6, 15, -0.3, 0, Math.PI * 2);
       ctx.fill();
     };
 
@@ -211,10 +227,9 @@ const DynamicBackground = () => {
         if (particle.y < 0 || particle.y > canvas.height) particle.dy *= -1;
 
         // Draw particle
-        ctx.globalAlpha = particle.isBasketball ? 0.8 : 0.5;
-        
         if (particle.isBasketball) {
-          // Draw basketball exactly like the cursor
+          // Draw basketball EXACTLY like the cursor - with gradient
+          ctx.globalAlpha = 0.8;
           const gradient = ctx.createRadialGradient(
             particle.x - particle.size * 0.3, particle.y - particle.size * 0.3, 0,
             particle.x, particle.y, particle.size
@@ -228,9 +243,9 @@ const DynamicBackground = () => {
           ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
           ctx.fill();
 
-          // Basketball lines - exactly like cursor
+          // Basketball lines - EXACTLY like cursor
           ctx.strokeStyle = '#9a3412';
-          ctx.lineWidth = Math.max(1, particle.size * 0.1);
+          ctx.lineWidth = Math.max(1, particle.size * 0.15);
           ctx.globalAlpha = 0.9;
           
           // Vertical line
@@ -245,17 +260,18 @@ const DynamicBackground = () => {
           ctx.lineTo(particle.x + particle.size, particle.y);
           ctx.stroke();
           
-          // Curved seam lines
+          // Curved seam lines - EXACTLY like cursor
           ctx.beginPath();
-          ctx.arc(particle.x, particle.y, particle.size * 0.9, -Math.PI/2, Math.PI/2);
+          ctx.arc(particle.x, particle.y, particle.size * 0.85, -Math.PI/2, Math.PI/2);
           ctx.stroke();
           
           ctx.beginPath();
-          ctx.arc(particle.x, particle.y, particle.size * 0.9, Math.PI/2, -Math.PI/2);
+          ctx.arc(particle.x, particle.y, particle.size * 0.85, Math.PI/2, -Math.PI/2);
           ctx.stroke();
           
         } else {
           // Regular particles
+          ctx.globalAlpha = 0.5;
           ctx.beginPath();
           ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
           ctx.fillStyle = particle.color;
